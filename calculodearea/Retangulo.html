@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Retângulo</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            #rectangle {
+                width: 200px;
+                height: 100px;
+                background-color: #3498db;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                font-weight: bold;
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+            #base {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            #height {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+            }
+            input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            #baseInput{
+                width: 200px;
+                height: 30px;
+            }
+            #heightInput{
+                width: 200px;
+                height: 30px;
+            }
+
+            button {
+                background-color: #3498db;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #2980b9;
+            }
+            #result {
+                margin-top: 20px;
+                text-align: center;
+            }
+        </style>
+    <style type="text/css" id="operaUserStyle"></style></head>
+<body>
+    <div id="rectangle">
+        <div id="base">b</div>
+        <div id="height">h</div>
+    </div>
+    <input type="number" id="baseInput" placeholder="Informe o valor da base">
+    <input type="number" id="heightInput" placeholder="Informe o valor da altura">
+    <button onclick="calculate()">Calcular</button>
+    <div id="result"></div>
+    <script>
+        function calculate() {
+            const base = parseFloat(document.getElementById("baseInput").value);
+            const height = parseFloat(document.getElementById("heightInput").value);
+            if (isNaN(base) || isNaN(height)) {
+                alert("Por favor, insira valores numéricos para base e altura.");
+                return;
+            }
+            document.getElementById("base").innerText = `b = ${base}`;
+            document.getElementById("height").innerText = `h = ${height}`;
+            document.getElementById('result').innerHTML = "O Perímetro do retangulo é dado por: <br>" + "P = 2.(" + base + "+" + height + ") = " + "2." + (base + height) + " = "  + (2*(base + height)) + 
+            " <br> <br> A área é dada por: <br> A  = " + base + "." + height + " = " + (base *height) + 
+            " <br> <br> A diagonal é dada por: <br> d²  = " + base + "² +" + height + "² " + "<br> d² = " + (base*base) + " + " + (height *height) + "<br>d = √ " + (base*base + height*height) + "<br>d =" + Math.pow((base*base + height*height), 0.5);
+        }
+    </script>
+
+
+</body>
+</html>

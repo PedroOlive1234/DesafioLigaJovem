@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginas com Quadrado</title>
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    transform: scale(1.2);
+    transform-origin: 0 0;
+    font-size: 1.2em; 
+}
+#quadrado {
+    width: 65%; 
+    padding-top: 65%; 
+    border: 3px solid #080808;
+    background-color: #E9ECEF; 
+    margin-bottom: 40px; 
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px; 
+}
+.letra {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+#letra-esquerda {
+    left: -30px;
+    top: calc(50% - 10px);
+}
+#letra-direita {
+    right: -30px;
+    top: calc(50% - 10px);
+}
+#letra-topo {
+    top: -30px;
+    left: calc(50% - 10px);
+}
+#letra-fundo {
+    bottom: -30px;
+    left: calc(50% - 10px);
+}
+input[type="text"], button {
+    width: 90%;
+    padding: 10px; 
+    margin-bottom: 40px; 
+    box-sizing: border-box;
+    background-color: #E9ECEF;
+    border: none; 
+}
+button {
+    background-color: #007BFF; 
+    color: white; 
+    margin: 10px;
+}
+#resultado {
+    width: 90%;
+    text-align: center;
+    margin-top: 15px; 
+}
+@media (min-width: 600px) {
+    #quadrado {
+        width: 130px;
+        padding-top: 130px;
+    }
+    input[type="text"], button {
+        width: auto;
+    }
+    #resultado {
+        width: auto;
+    }
+}
+</style>
+<body>
+   <div id="quadrado">
+    <div class="letra"  id="letra-esquerda">L</div>
+    <div class="letra"  id="letra-direita">L</div>
+    <div class="letra"  id="letra-topo">L</div>
+    <div class="letra"  id="letra-fundo">L</div>
+   </div>
+   <input type="number" id="lado" placeholder="Informe o lado do quadrado">
+   <button onclick="calcular()">Calcular</button>
+   <p id="resultado"></p>
+</body>
+
+<script>
+   function calcular() {
+    let lado = document.getElementById('lado').value;
+    document.getElementById('resultado').textContent = "O Perímetro do quadrado é dado por: <br>" +
+     "P = " + lado + " + " + lado + " + " + lado + " + " + lado + 
+    " = " + 4*lado + "<br> <br>" + "A área do quadrado é dada por: <br> A = "
+     + lado + " . " + lado + " = " + lado*lado + "<br> <br>" + " A diagonal do quadrado é dada por: <br> d² = "
+      + lado + "² + " + + lado + "²" + "<br>" + "d² = " + lado*lado + "+" + lado*lado + "<br>" + "d² = "
+      + (lado*lado + lado*lado) + "<br>" + "d = √ " + (lado*lado + lado*lado) + "<br>" + "d = " + Math.pow(2*lado*lado, 0.5);
+}
+
+    
+</script>
+</html>
