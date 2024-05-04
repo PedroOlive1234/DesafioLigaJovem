@@ -1,107 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="pt-br"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triangulo</title>
-</head>
-<style>
- 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    transform: scale(1.2);
-    transform-origin: 0 0;
-    font-size: 1.2em; 
-}
-.triangulo {
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 100px solid #000000;
-  margin: 10px;
-}
-
-.letra {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-}
-#letra-esquerda {
-    left: -30px;
-    top: calc(50% - 10px);
-}
-#letra-direita {
-    right: -30px;
-    top: calc(50% - 10px);
-}
-#letra-topo {
-    top: -30px;
-    left: calc(50% - 10px);
-}
-#letra-fundo {
-    bottom: -30px;
-    left: calc(50% - 10px);
-}
-input[type="text"], button {
-    width: 90%;
-    padding: 10px; 
-    margin-bottom: 40px; 
-    box-sizing: border-box;
-    background-color: #E9ECEF;
-    border: none; 
-}
-button {
-    background-color: #007BFF; 
-    color: white; 
-    margin: 10px;
-}
-#resultado {
-    width: 90%;
-    text-align: center;
-    margin-top: 15px; 
-}
-@media (min-width: 600px) {
-    #quadrado {
-        width: 130px;
-        padding-top: 130px;
-    }
-    input[type="text"], button {
-        width: auto;
-    }
-    #resultado {
-        width: auto;
-    }
-}
-</style>
-
+    <title>Triângulo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 50px auto;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .triangle {
+            position: relative;
+            margin-bottom: 20px;
+            padding: 50px;
+        }
+        .triangle-inputs {
+            margin-top: 100px;
+        }
+        .triangle input {
+            width: calc(33.33% - 10px);
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            
+        }
+        .triangle input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 0px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .triangle-shape {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 87px solid #007bff;
+            position: absolute;
+            top: 0px;
+            left: calc(50% - 50px);
+        }
+    </style>
+<style type="text/css" id="operaUserStyle"></style></head>
 <body>
+    <div class="container">
+        <h1>Triângulo</h1>
+        <div class="triangle">
+            <div class="triangle-shape"></div>
+            <div class="triangle-inputs">
+                <input type="number" id="side1" placeholder="Lado 1" required="">
+                <input type="number" id="side2" placeholder="Lado 2" required="">
+                <input type="number" id="side3" placeholder="Lado 3" required="">
+            </div>
+        </div>
+        <button type="button" onclick="calculateTriangle()">Calcular</button>
+        <div id="result"></div>
+    </div>
 
-    <div class="triangulo"></div>
+    <script>
+        function calculateTriangle() {
+            const side1 = parseFloat(document.getElementById("side1").value);
+            const side2 = parseFloat(document.getElementById("side2").value);
+            const side3 = parseFloat(document.getElementById("side3").value);
 
-    <input type="number" id="lado" placeholder="Informe o lado do triangulo">
-    <button onclick="calcular()">Calcular</button>
-    <p id="resultado"></p>
- </body>
- <script>
-     function calcular() {
-      let lado = document.getElementById('lado').value;
-      document.getElementById('resultado').textContent = "O Perímetro do quadrado é dado por: <br>" +
-       "P = " + lado + " + " + lado + " + " + lado + " + " + lado + 
-      " = " + 4*lado + "<br> <br>" + "A área do quadrado é dada por: <br> A = "
-       + lado + " . " + lado + " = " + lado*lado + "<br> <br>" + " A diagonal do quadrado é dada por: <br> d² = "
-        + lado + "² + " + + lado + "²" + "<br>" + "d² = " + lado*lado + "+" + lado*lado + "<br>" + "d² = "
-        + (lado*lado + lado*lado) + "<br>" + "d = √ " + (lado*lado + lado*lado) + "<br>" + "d = " + Math.pow(2*lado*lado, 0.5);
-  }
-  
-      
-  </script>
-</html>
+            if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1) {
+                const resultText = "O Perímetro do triângulo é dado por: <br>P=" + side1 + "+" + side2 + "+" + side3 + "<br>P =" + (side1 + side2 + side3) + 
+                "<br><br>Aplicando a fórmula de Heron, podemos determinar a área da seguinte maneira: <br><br> I)  Calculamos o semi-perímetro (p), temos: <br>p = P/2 <br>p =" +  (side1 + side2 + side3) + "/2 <br>p =  " + ((side1 + side2 + side3)/2) + 
+                "<br> <br> II) Aplicando a fórmula de Heron: <br>S = √p(p-a)(p-b)(p-c), onde a, b e c são os lados do triângulo, obtemos: <br><br> S = √" + ((side1 + side2 + side3)/2) + "(" + ((side1 + side2 + side3)/2) + " - " + side1 + ")" +
+                "(" + ((side1 + side2 + side3)/2) + " - " + side2 + ")" + "(" + ((side1 + side2 + side3)/2) + " - " + side3 + ")" +
+                "<br>S = √" + ((side1 + side2 + side3)/2) + "×" + (((side1 + side2 + side3)/2) - side1) + "×" + (((side1 + side2 + side3)/2) - side2) + "×" + (((side1 + side2 + side3)/2) - side3)+
+                "<br>S = √" + ((side1 + side2 + side3)/2)*(((side1 + side2 + side3)/2) - side1)*(((side1 + side2 + side3)/2) - side2)*(((side1 + side2 + side3)/2) - side3) + "<br>" +
+                "S = " + Math.pow(((side1 + side2 + side3)/2)*(((side1 + side2 + side3)/2) - side1)*(((side1 + side2 + side3)/2) - side2)*(((side1 + side2 + side3)/2) - side3), 0.5);
+                document.getElementById('result').textContent = resultText;
+            } else {
+                document.getElementById("result").textContent = "Esses lados não formam um triângulo válido.";
+            }
+        }
+    </script>
+
+
+</body></html>

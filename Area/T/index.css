@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    margin: 50px auto;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+h1 {
+    color: #007bff;
+}
+.triangle {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 50px;
+}
+.triangle-inputs {
+    margin-top: 100px;
+}
+.triangle input {
+    width: calc(33.33% - 10px);
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+}
+.triangle input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 0px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+.triangle-shape {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 87px solid #007bff;
+    position: absolute;
+    top: 0px;
+    left: calc(50% - 50px);
+}

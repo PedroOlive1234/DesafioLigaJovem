@@ -104,6 +104,11 @@ button {
       + lado + "² + " + + lado + "²" + "<br>" + "d² = " + lado*lado + "+" + lado*lado + "<br>" + "d² = "
       + (lado*lado + lado*lado) + "<br>" + "d = √ " + (lado*lado + lado*lado) + "<br>" + "d = " + Math.pow(2*lado*lado, 0.5);
 }
+function calcular2(){
+    let lado = document.getElementById('lado').value;
+    document.getElementById('resultado').textContent = "O perimetro do retangulo é dado por: <br> d² = " +
+    " = " + 4*lado + "<br> <br>" + " A área do retangulo e dada por: <br> d"
+}
 
     
 </script>

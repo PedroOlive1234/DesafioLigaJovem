@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+    <title>Document</title>
+</head>
+<style type="text/css" id="operaUserStyle"></style>
+<body>
+    <div class="container">
+        <h1>Triângulo</h1>
+        <div class="triangle">
+            <div class="triangle-shape"></div>
+            <div class="triangle-inputs">
+                <input type="number" id="side1" placeholder="Lado 1" required="">
+                <input type="number" id="side2" placeholder="Lado 2" required="">
+                <input type="number" id="side3" placeholder="Lado 3" required="">
+            </div>
+        </div>
+        <button type="button" onclick="calculateTriangle()">Calcular</button>
+        <div id="result"></div>
+    </div>
+
+</body>
+</html>
